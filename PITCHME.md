@@ -101,22 +101,8 @@
             adjustPosition.x = screenBounds.max.x - sphereCollider.radius;
         }
         // 上下に出ていないか
-        if (sphereCollider.bounds.min.y < screenBounds.min.y)
-        {
-            v.y = Mathf.Abs(v.y);
-            adjustPosition.y = screenBounds.min.y + sphereCollider.radius;
-        }
-        else if(sphereCollider.bounds.max.y > screenBounds.max.y)
-        {
-            v.y = -Mathf.Abs(v.y);
-            adjustPosition.y = screenBounds.max.y - sphereCollider.radius;
-        }
-
+        // (中略)
         rb.velocity = v;
-        if (isInScreen)
-        {
-            transform.position = adjustPosition;
-        }
     }
 ```
 
