@@ -11,8 +11,6 @@
 /[Mm]emoryCaptures/
 
 [Aa]ssets/Private/
-[Aa]ssets/GSSA/
-[Aa]ssets/naichilab/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta

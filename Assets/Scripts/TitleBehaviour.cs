@@ -23,6 +23,7 @@ public class TitleBehaviour : MonoBehaviour
         {
             if (!SceneManager.GetSceneByName("Ranking").IsValid())
             {
+                SoundManager.PlaySE(SoundManager.AUDIO_LIST.CLICK);
                 isRanking = false;
             }
         }
@@ -42,6 +43,7 @@ public class TitleBehaviour : MonoBehaviour
     {
         if (isRanking) return;
 
+        SoundManager.PlaySE(SoundManager.AUDIO_LIST.CLICK);
         isRanking = true;
         naichilab.RankingLoader.Instance.SendScoreAndShowRanking(GameParams.highScore);
     }
