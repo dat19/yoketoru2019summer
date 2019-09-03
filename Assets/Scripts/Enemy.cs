@@ -24,19 +24,29 @@ public class Enemy : MonoBehaviour
     }
 
     /// <summary>
+    /// 現在の速度で方向をランダムに設定します。
+    /// </summary>
+    public void RandomDirectoin()
+    {
+        float th = Random.Range(0f, Mathf.PI * 2f);
+        Vector3 vel = new Vector3(Mathf.Cos(th), Mathf.Sin(th), 0);
+        rb.velocity = vel * speed;
+    }
+
+    /// <summary>
     /// 指定の値を速度として記録して、ランダムで移動方向を設定します。
     /// </summary>
     /// <param name="spd">設定する速度</param>
     public void SetSpeed(float spd)
     {
         speed = spd;
-        float th = Random.Range(0f, Mathf.PI * 2f);
-        Vector3 vel = new Vector3(Mathf.Cos(th), Mathf.Sin(th), 0);
-        rb.velocity = vel * speed;
+        RandomDirectoin();
     }
 
     private void FixedUpdate()
     {
-        // 
+        // 速度維持
+        Vector3 vel = rb.velocity.normalized;
+        rb.velocity = vel * speed;
     }
 }
