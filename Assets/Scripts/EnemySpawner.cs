@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("敵の最高速度"), SerializeField]
     float maxSpeed = 6f;
 
-    List<GameObject> enemies = new List<GameObject>();
+    static List<Enemy> enemies = new List<Enemy>();
 
     /// <summary>
     /// 出現させる敵の数
@@ -31,8 +31,9 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject go = Instantiate<GameObject>(enemyPrefab, transform);
             float spd = Random.Range(minSpeed, maxSpeed);
-            go.GetComponent<Enemy>().SetSpeed(spd);
-            enemies.Add(go);
+            Enemy ene = go.GetComponent<Enemy>();
+            ene.SetSpeed(spd);
+            enemies.Add(ene);
         }
     }
 
@@ -42,6 +43,17 @@ public class EnemySpawner : MonoBehaviour
     public static void IncrementEnemy()
     {
         enemyCount++;
+    }
+
+    /// <summary>
+    /// 全ての敵の方向を変更します。
+    /// </summary>
+    public static void ChangeDir()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            enemies[i].RandomDirectoin();
+        }
     }
 
 }

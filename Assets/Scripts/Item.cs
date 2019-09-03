@@ -46,6 +46,7 @@ public class Item : MonoBehaviour
 
             GameParams.AddScore(point*EnemySpawner.enemyCount);
             EnemySpawner.IncrementEnemy();
+            EnemySpawner.ChangeDir();
             anim.SetTrigger("Get");
 
             if (getParticle != null)

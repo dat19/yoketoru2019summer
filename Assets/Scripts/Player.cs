@@ -5,17 +5,21 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Tooltip("プレイヤーの移動速度"), SerializeField]
-    float speed = 5f;
+    float speed = 12f;
+    [Tooltip("向きの調整"), SerializeField]
+    float dirRate = 0.3f;
+    [Tooltip("向く角度"), SerializeField]
+    float turnDegree = 30f;
 
     Camera mainCamera = null;
     Rigidbody rb = null;
-    ParticleSystem particleSystem = null;
+    ParticleSystem myParticleSystem = null;
     MeshRenderer []myRenderer = null;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        particleSystem = GetComponentInChildren<ParticleSystem>();
+        myParticleSystem = GetComponentInChildren<ParticleSystem>();
         myRenderer = GetComponentsInChildren<MeshRenderer>();
     }
 
@@ -41,6 +45,15 @@ public class Player : MonoBehaviour
         {
             rb.velocity = vel.normalized * speed;
         }
+
+        Vector3 f = Vector3.forward;
+        if (!Mathf.Approximately(rb.velocity.magnitude, 0)) {
+            Vector3 dirvel = rb.velocity.normalized;
+
+            f = Quaternion.Euler(dirvel.y*turnDegree, -dirvel.x * turnDegree, 0)* Vector3.forward;
+        }
+
+        transform.forward = Vector3.Lerp(transform.forward,   f, dirRate);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -49,7 +62,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            particleSystem.Play();
+            myParticleSystem.Play();
 
             for (int i=0;i<myRenderer.Length;i++)
             {
