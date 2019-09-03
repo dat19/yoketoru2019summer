@@ -65,6 +65,13 @@ public class GameBehaviour : MonoBehaviour
         countDownAnimator.SetTrigger("CountDown");
     }
 
+    private void FixedUpdate()
+    {
+        if (!isPlayable) return;
+
+        GameParams.AddScore((float)EnemySpawner.enemyCount*Time.fixedDeltaTime);
+    }
+
     /// <summary>
     /// カウントダウンアニメーションから呼び出します。
     /// </summary>
@@ -101,7 +108,7 @@ public class GameBehaviour : MonoBehaviour
 
     void onChangeScore()
     {
-        scoreText.text = $"{GameParams.score:D6}";
+        scoreText.text = $"{((int)GameParams.score):D6}";
     }
 
     /// <summary>

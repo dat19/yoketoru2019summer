@@ -42,6 +42,7 @@ public class Item : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             sphereCollider.enabled = false;
+            rb.velocity = Vector3.zero;
 
             GameParams.AddScore(point*EnemySpawner.enemyCount);
             EnemySpawner.IncrementEnemy();

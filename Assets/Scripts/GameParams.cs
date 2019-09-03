@@ -8,9 +8,9 @@ public static class GameParams
     /// <summary>
     /// 最高得点
     /// </summary>
-    const int SCORE_MAX = 999999;
+    const float SCORE_MAX = 999999;
 
-    public static int score { get; private set; }
+    public static float score { get; private set; }
     public static int highScore { get; private set; }
     public static bool isHighScore { get; private set; }
 
@@ -36,7 +36,7 @@ public static class GameParams
     /// スコアを加算します。
     /// </summary>
     /// <param name="add">加算する得点</param>
-    public static void AddScore(int add)
+    public static void AddScore(float add)
     {
         score += add;
         if (score > SCORE_MAX)
@@ -67,9 +67,10 @@ public static class GameParams
     /// </summary>
     public static void CheckHighScore()
     {
-        if (score > highScore)
+        int sc = (int)score;
+        if (sc > highScore)
         {
-            highScore = score;
+            highScore = sc;
             isHighScore = true;
         }
     }

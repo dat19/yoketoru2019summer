@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
 
     Camera mainCamera = null;
     Rigidbody rb = null;
+    ParticleSystem particleSystem = null;
+    MeshRenderer []myRenderer = null;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        particleSystem = GetComponentInChildren<ParticleSystem>();
+        myRenderer = GetComponentsInChildren<MeshRenderer>();
     }
 
     private void FixedUpdate()
@@ -41,8 +45,19 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!GameBehaviour.isPlayable) return;
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            particleSystem.Play();
+
+            for (int i=0;i<myRenderer.Length;i++)
+            {
+                myRenderer[i].enabled = false;
+            }
+
+            rb.isKinematic = true;
+
             GameBehaviour.Gameover();
         }
     }
