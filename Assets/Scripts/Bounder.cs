@@ -36,34 +36,46 @@ public class Bounder : MonoBehaviour
     {
         Vector3 v = rb.velocity;
         Vector3 adjustPosition = transform.position;
+        bool isBound = false;
 
         // 左右に出ていないか
         if (sphereCollider.bounds.min.x < screenBounds.min.x)
         {
             v.x = Mathf.Abs(v.x);
             adjustPosition.x = screenBounds.min.x + sphereCollider.radius;
+            isBound = true;
         }
         else if (sphereCollider.bounds.max.x > screenBounds.max.x)
         {
             v.x = -Mathf.Abs(v.x);
             adjustPosition.x = screenBounds.max.x - sphereCollider.radius;
+            isBound = true;
         }
         // 上下に出ていないか
         if (sphereCollider.bounds.min.y < screenBounds.min.y)
         {
             v.y = Mathf.Abs(v.y);
             adjustPosition.y = screenBounds.min.y + sphereCollider.radius;
+            isBound = true;
         }
-        else if(sphereCollider.bounds.max.y > screenBounds.max.y)
+        else if (sphereCollider.bounds.max.y > screenBounds.max.y)
         {
             v.y = -Mathf.Abs(v.y);
             adjustPosition.y = screenBounds.max.y - sphereCollider.radius;
+            isBound = true;
         }
 
         rb.velocity = v;
         if (isInScreen)
         {
             transform.position = adjustPosition;
+        }
+        else
+        {
+            if (isBound)
+            {
+                SoundManager.PlaySE(SoundManager.AUDIO_LIST.BOUND);
+            }
         }
     }
 }

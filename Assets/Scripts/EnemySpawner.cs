@@ -20,6 +20,11 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     public static int enemyCount { get; private set; }
 
+    private void Awake()
+    {
+        enemies.Clear();
+    }
+
     private void Start()
     {
         enemyCount = startEnemyCount;

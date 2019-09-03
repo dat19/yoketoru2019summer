@@ -6,6 +6,11 @@ public class TitleBehaviour : MonoBehaviour
 {
     bool isStarted = false;
 
+    private void Start()
+    {
+        SoundManager.PlayBGM(SoundManager.AUDIO_LIST.TITLE);
+    }
+
     void Update()
     {
         if (isStarted) return;
@@ -14,6 +19,8 @@ public class TitleBehaviour : MonoBehaviour
         {
             isStarted = true;
             UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Game");
+            SoundManager.StopBGM();
+            SoundManager.PlaySE(SoundManager.AUDIO_LIST.START);            
         }
     }
 }

@@ -44,6 +44,8 @@ public class Item : MonoBehaviour
             sphereCollider.enabled = false;
             rb.velocity = Vector3.zero;
 
+            SoundManager.PlaySE(SoundManager.AUDIO_LIST.ITEM);
+
             GameParams.AddScore(point*EnemySpawner.enemyCount);
             EnemySpawner.IncrementEnemy();
             EnemySpawner.ChangeDir();

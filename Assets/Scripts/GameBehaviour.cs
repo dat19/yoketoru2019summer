@@ -63,6 +63,7 @@ public class GameBehaviour : MonoBehaviour
         _countDown = 3;
         countDownText.text = _countDown.ToString();
         countDownAnimator.SetTrigger("CountDown");
+        SoundManager.PlaySE(SoundManager.AUDIO_LIST.COUNTDOWN);
     }
 
     private void FixedUpdate()
@@ -84,9 +85,12 @@ public class GameBehaviour : MonoBehaviour
         {
             Instance.countDownText.text = _countDown.ToString();
             Instance.countDownAnimator.SetTrigger("CountDown");
+            SoundManager.PlaySE(SoundManager.AUDIO_LIST.COUNTDOWN);
         }
         else if (_countDown == 0)
         {
+            SoundManager.PlayBGM(SoundManager.AUDIO_LIST.BGM);
+            SoundManager.PlaySE(SoundManager.AUDIO_LIST.GAMESTART);
             GameStart();
         }
         else
@@ -119,21 +123,10 @@ public class GameBehaviour : MonoBehaviour
         // すでにゲームオーバー以外なら何もしない
         if (state != GAME_STATE.GAME) return;
 
+        SoundManager.PlayBGM(SoundManager.AUDIO_LIST.GAMEOVER);
+        SoundManager.PlaySE(SoundManager.AUDIO_LIST.MISS);
         state = GAME_STATE.GAMEOVER;
         GameParams.CheckHighScore();
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Additive);
-    }
-
-    /// <summary>
-    /// クリアになったら呼び出します。
-    /// </summary>
-    public static void Clear()
-    {
-        // すでにクリアなら何もしない
-        if (state == GAME_STATE.CLEAR) return;
-
-        state = GAME_STATE.CLEAR;
-        GameParams.CheckHighScore();
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Clear", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 }

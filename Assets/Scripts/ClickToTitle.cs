@@ -13,6 +13,7 @@ public class ClickToTitle : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            SoundManager.PlaySE(SoundManager.AUDIO_LIST.CLICK);
             UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Title");
         }        
     }
