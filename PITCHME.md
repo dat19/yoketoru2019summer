@@ -144,5 +144,5 @@ public class CountDownAnim : StateMachineBehaviour
 - TextMesh Pro
   - フォントはExampleのものを利用
 - ProBuilder
-- [naichi. ネットランキングアセット]()
-- [すずきかつーき. Googleスプレッドシートを使ったネットランキング]
+- [naichi. ネットランキングアセット](https://github.com/naichilab/unity-simple-ranking/tree/ed840a13570b5f9e1cb1652996d245f60950908f)
+- [divideby_zero. Googleスプレッドシートを使ったネットランキング](https://qiita.com/divideby_zero/items/50897a2695aa04bfeb69)
