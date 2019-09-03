@@ -141,9 +141,11 @@ public class CountDownAnim : StateMachineBehaviour
 ---
 
 ### 利用アセット
+- BGM [魔王魂](https://maoudamashii.jokersounds.com/)
+- SE [効果音ラボ](https://soundeffect-lab.info/)
+- [naichi. ネットランキングアセット](https://github.com/naichilab/unity-simple-ranking/tree/ed840a13570b5f9e1cb1652996d245f60950908f)
+- [divideby_zero. Googleスプレッドシートを使ったネットランキング](https://qiita.com/divideby_zero/items/50897a2695aa04bfeb69)
 - PostProcessing Stack V2
 - TextMesh Pro
   - フォントはExampleのものを利用
 - ProBuilder
-- [naichi. ネットランキングアセット](https://github.com/naichilab/unity-simple-ranking/tree/ed840a13570b5f9e1cb1652996d245f60950908f)
-- [divideby_zero. Googleスプレッドシートを使ったネットランキング](https://qiita.com/divideby_zero/items/50897a2695aa04bfeb69)
