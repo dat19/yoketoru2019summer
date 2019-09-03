@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Tooltip("基礎点"), SerializeField]
+    int point = 100;
+    [Tooltip("パーティクル"), SerializeField]
+    GameObject getParticle = null;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameParams.AddScore(point*EnemySpawner.enemyCount);
+            EnemySpawner.IncrementEnemy();
+
+            if (getParticle != null)
+            {
+                Instantiate(getParticle, transform.position, Quaternion.identity);
+            }
+        }
     }
 }

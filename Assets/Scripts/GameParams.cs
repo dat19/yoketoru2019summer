@@ -11,8 +11,16 @@ public static class GameParams
     const int SCORE_MAX = 999999;
 
     public static int score { get; private set; }
+    public static int highScore { get; private set; }
+    public static bool isHighScore { get; private set; }
+
+    #region Private Variables
 
     static event UnityAction _onChangeScore;
+
+    static bool isInited = false;
+
+    #endregion Private Variables
 
     /// <summary>
     /// スコアを更新した時に呼び出すハンドラーを設定します。
@@ -43,8 +51,27 @@ public static class GameParams
     /// </summary>
     public static void ClearScore()
     {
+        if (!isInited)
+        {
+            isInited = true;
+            highScore = 0;
+        }
+
         score = 0;
+        isHighScore = false;
         _onChangeScore?.Invoke();
+    }
+
+    /// <summary>
+    /// ハイスコアチェック
+    /// </summary>
+    public static void CheckHighScore()
+    {
+        if (score > highScore)
+        {
+            highScore = score;
+            isHighScore = true;
+        }
     }
 
 }

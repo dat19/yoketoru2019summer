@@ -89,7 +89,7 @@ public class GameBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// ゲームを開始するように設定します。
+    /// カウントダウンが完了して、ゲームを開始する時に呼び出します。
     /// </summary>
     static void GameStart()
     {
@@ -102,5 +102,31 @@ public class GameBehaviour : MonoBehaviour
     void onChangeScore()
     {
         scoreText.text = $"{GameParams.score:D6}";
+    }
+
+    /// <summary>
+    /// ゲームオーバーになったら呼び出します。
+    /// </summary>
+    public static void Gameover()
+    {
+        // すでにゲームオーバー以外なら何もしない
+        if (state != GAME_STATE.GAME) return;
+
+        state = GAME_STATE.GAMEOVER;
+        GameParams.CheckHighScore();
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("GameOver");
+    }
+
+    /// <summary>
+    /// クリアになったら呼び出します。
+    /// </summary>
+    public static void Clear()
+    {
+        // すでにクリアなら何もしない
+        if (state == GAME_STATE.CLEAR) return;
+
+        state = GAME_STATE.CLEAR;
+        GameParams.CheckHighScore();
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Clear");
     }
 }

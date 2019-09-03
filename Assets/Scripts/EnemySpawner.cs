@@ -15,7 +15,10 @@ public class EnemySpawner : MonoBehaviour
 
     List<GameObject> enemies = new List<GameObject>();
 
-    static int enemyCount;
+    /// <summary>
+    /// 出現させる敵の数
+    /// </summary>
+    public static int enemyCount { get; private set; }
 
     private void Start()
     {
@@ -26,11 +29,19 @@ public class EnemySpawner : MonoBehaviour
     {
         for (; enemies.Count < enemyCount; )
         {
-            GameObject go = Instantiate<GameObject>(enemyPrefab);
+            GameObject go = Instantiate<GameObject>(enemyPrefab, transform);
             float spd = Random.Range(minSpeed, maxSpeed);
             go.GetComponent<Enemy>().SetSpeed(spd);
             enemies.Add(go);
         }
+    }
+
+    /// <summary>
+    /// 敵の数を増やします。
+    /// </summary>
+    public static void IncrementEnemy()
+    {
+        enemyCount++;
     }
 
 }
