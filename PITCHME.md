@@ -9,8 +9,9 @@
 
 ![ゲーム画面](images/game.png)
 
-[ゲームを遊ぶ](https://dat19.github.io/yoketoru2019summer/webgl/index.html)
+---
 
+[ゲームを遊ぶ](https://dat19.github.io/yoketoru2019summer/webgl/index.html)
 
 ---
 
