@@ -32,8 +32,8 @@
 - グラフィックの変更
 - ゲーム性の向上
   - アイテムを取るごとに敵を増やして得点アップ
-- 敵をプレイヤーの近くに出現させないようにする
-- 画面跳ね返りをスクリプトで実装
+- 敵や飴をプレイヤーの近くに出現させないようにする
+- 画面の跳ね返りをスクリプトで実装
 - 各種アニメ
 
 ---
@@ -100,9 +100,9 @@
             v.x = -Mathf.Abs(v.x);
             adjustPosition.x = screenBounds.max.x - sphereCollider.radius;
         }
-        // 上下に出ていないか
         // (中略)
         rb.velocity = v;
+        transform.position = adjustPosition;
     }
 ```
 
