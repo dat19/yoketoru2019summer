@@ -1,7 +1,7 @@
 # yoketoru2019summer
  よけとる2019夏版
 
-[![title](images/title.png)](webgl/index.html)
+[![title](images/title.png)](https://dat19.github.io/yoketoru2019summer/webgl/index.html)
 
 ## 操作説明
 - マウスで操作
@@ -10,7 +10,7 @@
 - 飴を取るたびに敵が増えて、得点は上がります
 - ハイスコアを目指してください！
 
-[プレイ画面へ](webgl/index.html)
+[プレイ画面へ](https://dat19.github.io/yoketoru2019summer/webgl/index.html)
 
 ---
 
