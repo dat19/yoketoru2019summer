@@ -52,13 +52,15 @@ public class GameBehaviour : MonoBehaviour
     {
         Instance = this;
         state = GAME_STATE.READY;
+        Time.timeScale = 0f;
     }
 
     void Start()
     {
-        _countDown = 3;
         GameParams.SetChangeScore(onChangeScore);
         GameParams.ClearScore();
+        countDownAnimator.transform.root.gameObject.SetActive(true);
+        _countDown = 3;
         countDownText.text = _countDown.ToString();
         countDownAnimator.SetTrigger("CountDown");
     }
@@ -78,14 +80,23 @@ public class GameBehaviour : MonoBehaviour
         }
         else if (_countDown == 0)
         {
-            Instance.countDownText.text = "START!!";
-            state = GAME_STATE.GAME;
-            Instance.countDownAnimator.SetTrigger("Start");
+            GameStart();
         }
         else
         {
             Instance.countDownAnimator.gameObject.transform.root.gameObject.SetActive(false);
         }
+    }
+
+    /// <summary>
+    /// ゲームを開始するように設定します。
+    /// </summary>
+    static void GameStart()
+    {
+        Instance.countDownText.text = "START!!";
+        state = GAME_STATE.GAME;
+        Instance.countDownAnimator.SetTrigger("Start");
+        Time.timeScale = 1f;
     }
 
     void onChangeScore()

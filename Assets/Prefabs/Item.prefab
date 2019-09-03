@@ -5947,4 +5947,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRange: 3
-  maxTry: 20
+  maxTry: 100

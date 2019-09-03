@@ -8,12 +8,12 @@ public class RandomPosition : MonoBehaviour
     [Tooltip("プレイヤーからの最低距離"), SerializeField]
     float minRange = 3f;
     [Tooltip("フリーズ防止のランダム試行回数"), SerializeField]
-    int maxTry = 20;
+    int maxTry = 100;
 
     float width;
     float height;
 
-    void Start()
+    void Awake()
     {
         Camera cam = Camera.main;
         height = cam.orthographicSize;
