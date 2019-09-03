@@ -1,7 +1,7 @@
 {
 "companyName": "YuTanaka",
 "productName": "yoketoru2019summer",
-"productVersion": "0.8.1",
+"productVersion": "0.9.0",
 "dataUrl": "webgl.data.unityweb",
 "wasmCodeUrl": "webgl.wasm.code.unityweb",
 "wasmFrameworkUrl": "webgl.wasm.framework.unityweb",
