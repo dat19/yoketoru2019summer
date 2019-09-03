@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 7724635085812345703}
   - component: {fileID: 3994896804358888623}
   - component: {fileID: 3129326115230579245}
+  - component: {fileID: 238545141}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -154,6 +155,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc925ababb50fd46b7ca7fd8e908935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &238545141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8906549692363762782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437cc90079ed4844f9c32b6984a064f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &8906549692562623364
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +256,6 @@ GameObject:
   - component: {fileID: 8906549693110681152}
   - component: {fileID: 8906549693110681151}
   - component: {fileID: 8906549693110681150}
-  - component: {fileID: 8906549693110681153}
   m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
@@ -309,16 +322,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &8906549693110681153
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8906549693110681155}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

@@ -166,24 +166,6 @@ MonoBehaviour:
   scoreText: {fileID: 1491558349}
   countDownAnimator: {fileID: 342270079}
   countDownText: {fileID: 1127615463}
---- !u!1 &238545140 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8906549692363762782, guid: e41008a5b98f990409ba0d80d77b148a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8906549693836173054}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &238545141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238545140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 437cc90079ed4844f9c32b6984a064f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &304953245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1237,7 @@ PrefabInstance:
     - target: {fileID: 6990845843148570318, guid: bd96aa06050131b409a9c38c04b5ad30,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6990845843148570318, guid: bd96aa06050131b409a9c38c04b5ad30,
         type: 3}
@@ -1307,11 +1289,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6990845843148570319, guid: bd96aa06050131b409a9c38c04b5ad30,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990845842709467439, guid: bd96aa06050131b409a9c38c04b5ad30,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990845842709467439, guid: bd96aa06050131b409a9c38c04b5ad30,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990845842709467439, guid: bd96aa06050131b409a9c38c04b5ad30,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6990845842709467438, guid: bd96aa06050131b409a9c38c04b5ad30,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1258489214}
+    - target: {fileID: 6990845842709467433, guid: bd96aa06050131b409a9c38c04b5ad30,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6990845842709467435, guid: bd96aa06050131b409a9c38c04b5ad30,
         type: 3}
       propertyPath: m_Mesh

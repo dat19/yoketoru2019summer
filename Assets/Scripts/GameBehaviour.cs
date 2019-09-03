@@ -114,7 +114,7 @@ public class GameBehaviour : MonoBehaviour
 
         state = GAME_STATE.GAMEOVER;
         GameParams.CheckHighScore();
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("GameOver");
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     /// <summary>
@@ -127,6 +127,6 @@ public class GameBehaviour : MonoBehaviour
 
         state = GAME_STATE.CLEAR;
         GameParams.CheckHighScore();
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Clear");
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Clear", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 }
